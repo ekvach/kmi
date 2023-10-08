@@ -1,4 +1,5 @@
 # kmi
 
-install dependecies: npm install
+install dependencies: npm install
+
 run tests: npx playwright test
