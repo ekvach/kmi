@@ -44,7 +44,7 @@ test('Verify Content item can be found in "All Content" section', async ({ page 
   await page.locator(FullCatalogPage.contentSearchButton).click();
 
   await page.waitForResponse(
-    resp => resp.url().includes(searchValue.replaceAll(' ', '+')) && resp.status() === 200);
+    resp => resp.url().includes(searchValue.split(' ').join('+')) && resp.status() === 200);
 
   const contentItem = page.locator(FullCatalogPage.contentListItem);
   const contentList = page.locator(FullCatalogPage.contentList, { has: contentItem });
@@ -72,7 +72,7 @@ test('Verify navigation into Content item details from searched Content', async 
   await page.locator(FullCatalogPage.contentSearchButton).click();
 
   await page.waitForResponse(
-    resp => resp.url().includes(searchValue.replaceAll(' ', '+')) && resp.status() === 200);
+    resp => resp.url().includes(searchValue.split(' ').join('+')) && resp.status() === 200);
 
   const contentItem = page.locator(FullCatalogPage.contentListItem);
   const contentList = page.locator(FullCatalogPage.contentList, { has: contentItem });
